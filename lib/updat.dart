@@ -95,7 +95,6 @@ class _UpdatWidgetState extends State<UpdatWidget> {
   @override
   void initState() {
     appVersion = Version.parse(widget.currentVersion);
-    checkDownloadedInstaller();
     updateValues();
     super.initState();
   }
@@ -192,6 +191,7 @@ class _UpdatWidgetState extends State<UpdatWidget> {
                     status = UpdatStatus.availableWithChangelog;
                     changelog = changelogRec;
                   });
+                  checkDownloadedInstaller();
                 }
               }).catchError((_) {
                 return;
@@ -200,6 +200,7 @@ class _UpdatWidgetState extends State<UpdatWidget> {
               setState(() {
                 status = UpdatStatus.available;
               });
+              checkDownloadedInstaller();
             }
           } else {
             setState(() {
