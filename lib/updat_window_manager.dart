@@ -1,9 +1,8 @@
 import 'package:flutter/foundation.dart';
-import 'package:universal_io/io.dart';
-
 import 'package:flutter/material.dart';
-import 'package:updat/theme/chips/floating_with_silent_download.dart';
-import 'package:updat/updat.dart';
+import 'package:universal_io/io.dart';
+import 'package:updat_plus/theme/chips/floating_with_silent_download.dart';
+import 'package:updat_plus/updat.dart';
 import 'package:window_manager/window_manager.dart';
 
 class UpdatWindowManager extends StatefulWidget {

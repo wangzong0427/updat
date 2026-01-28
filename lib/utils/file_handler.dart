@@ -1,12 +1,11 @@
 import 'dart:io';
 
 import 'package:archive/archive_io.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:path/path.dart' as p;
 import 'package:http/http.dart' as http;
-
-import 'package:updat/utils/global_options.dart';
-import 'package:updat/utils/open_link.dart';
+import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
+import 'package:updat_plus/utils/global_options.dart';
+import 'package:updat_plus/utils/open_link.dart';
 
 Future<File> getDownloadFileLocation(
     String release, String appName, String extension) async {
@@ -49,15 +48,13 @@ Future<void> openInstaller(File file, String appName) async {
   if (file.existsSync()) {
     if (file.path.endsWith("zip")) {
       final outDir = Directory(p.join(p.dirname(file.path), appName));
-      file = File(
-          outDir.listSync().firstWhere((e) {
-            if (Platform.isWindows) {
-              return e.path.endsWith("exe");
-            } else {
-              return true;
-            }
-          }).path
-      );
+      file = File(outDir.listSync().firstWhere((e) {
+        if (Platform.isWindows) {
+          return e.path.endsWith("exe");
+        } else {
+          return true;
+        }
+      }).path);
     }
     await openUri(Uri(path: file.absolute.path, scheme: 'file'));
   } else {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:updat/theme/chips/default.dart';
+import 'package:updat_plus/theme/chips/default.dart';
 
 import '../updat.dart';
 
@@ -23,8 +23,7 @@ Widget passthroughChip({
     required void Function() startUpdate,
     required Future<void> Function() launchInstaller,
     required void Function() dismissUpdate,
-  })?
-      updateChipBuilder,
+  })? updateChipBuilder,
   required Function setFunctions,
 }) {
   setFunctions(
